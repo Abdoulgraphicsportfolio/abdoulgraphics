@@ -1,64 +1,458 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<title>Abdoulgraphics | Portfolio</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Abdoulgraphics | Graphic Designer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-ring"></div>
+  <p>Chargement...</p>
+</div>
+
+<!-- SCROLL PROGRESS BAR -->
+<div id="scroll-progress"></div>
 
 <body>
 
-<header>
-  <h1>Abdoulgraphics</h1>
-  <p>Designer graphique — Bamako</p>
-</header>
+<!-- NAV -->
+<nav class="nav">
+  <div class="logo">ABDOUL<span>GRAPHICS</span></div>
 
-<!-- A PROPOS -->
-<section class="about">
-  <div class="about-box">
-    <div class="about-image">
-      <img src="images/abdoul.jpg" alt="Abdoulgraphics">
-    </div>
+  <ul class="menu">
+    <li><a href="#home" onclick="closeMenu()">Accueil</a></li>
+    <li><a href="#portfolio" onclick="closeMenu()">Portfolio</a></li>
+    <li><a href="#about" onclick="closeMenu()">À propos</a></li>
+    <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+  </ul>
 
-    <div class="about-text">
-      <h2>Derrière Abdoulgraphics</h2>
-      <p>
-        Je suis Abdoul, designer graphique basé à Bamako.
-        J’accompagne les marques et entrepreneurs dans la création
-        d’une image professionnelle et impactante.
-      </p>
+  <!-- HAMBURGER -->
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 
-      <ul>
-        <li>✔ Respect des délais</li>
-        <li>✔ Design créatif et stratégique</li>
-        <li>✔ Communication claire</li>
-      </ul>
-    </div>
+<!-- DARK / LIGHT SWITCH -->
+<div class="theme-toggle" onclick="toggleTheme()">
+  <span class="sun">☀️</span>
+  <span class="moon">🌙</span>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <h1></h1>
+  <p>Designer graphique professionnel basé à Bamako</p>
+  <a href="#portfolio" class="btn">Voir mes créations</a>
+</section>
+
+<!-- PARALLAX SECTION -->
+<section class="parallax">
+  <div class="parallax-content" data-aos="fade-up">
+    <h2>Design créatif & impactant</h2>
+    <p>Des visuels modernes qui attirent et marquent les esprits</p>
   </div>
 </section>
 
+<!-- STATS -->
+<section class="stats scroll-3d" id="stats">
+  <div class="stat" data-target="9">0<br><span>Années d’expérience</span></div>
+  <div class="stat" data-target="120">0<br><span>Projets réalisés</span></div>
+  <div class="stat" data-target="100" data-suffix="%">0<br><span>Satisfaction client</span></div>
+</section>
+
+
 <!-- PORTFOLIO -->
-<section class="portfolio">
-  <h2>Réalisations</h2>
-  <div class="gallery">
-    <img src="images/projet1.jpg">
-    <img src="images/projet2.jpg">
-    <img src="images/projet3.jpg">
+<section class="portfolio scroll-3d" id="portfolio">
+  <h2 data-aos="fade-up">Portfolio</h2>
+
+  <div class="grid">
+    <img src="./images/projet1.jpg" alt="Projet 1" onclick="openPopup(this.src)" data-aos="zoom-in">
+    <img src="./images/projet2.jpg" alt="Projet 2" onclick="openPopup(this.src)" data-aos="zoom-in">
+    <img src="./images/projet3.jpg" alt="Projet 3" onclick="openPopup(this.src)" data-aos="zoom-in">
+    <img src="./images/projet4.jpg" alt="Projet 4" onclick="openPopup(this.src)" data-aos="zoom-in">
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about scroll-3d" id="about">
+  <div class="about-container">
+
+    <div class="photo-wrapper" data-aos="zoom-in">
+      <div class="photo-glow"></div>
+      <img src="./images/abdoul.jpg" alt="Abdoul Graphic Designer">
+    </div>
+
+    <div class="about-text" data-aos="fade-left">
+      <h2>Derrière Abdoulgraphics</h2>
+      <p>
+        Je suis Abdoul, designer graphique passionné basé à Bamako.
+        Je transforme vos idées en émotions visuelles à fort impact.
+      </p>
+
+      <ul>
+        <li>✔ Respect strict des délais</li>
+        <li>✔ Créativité professionnelle</li>
+        <li>✔ Communication fluide</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================
+     TEMOIGNAGES SLIDER
+========================= -->
+<section class="testimonials scroll-3d" id="temoignages">
+  <h2 data-aos="fade-up">Ils m’ont fait confiance</h2>
+  <p class="subtitle" data-aos="fade-up" data-aos-delay="100">
+    Plus de 10 clients satisfaits
+  </p>
+
+  <div class="testimonial-slider">
+
+    <div class="testimonial-track">
+
+      <!-- CARD -->
+      <div class="testimonial-card">
+        <p>“Travail exceptionnel, rapide et très créatif. Je recommande fortement.”</p>
+        <strong>Amadou Traoré</strong>
+        <span>Bamako</span>
+      </div>
+
+      <div class="testimonial-card">
+        <p>“Excellent sens du détail et très professionnel.”</p>
+        <strong>Fatoumata Koné</strong>
+        <span>Entrepreneure</span>
+      </div>
+
+      <div class="testimonial-card">
+        <p>“Le branding réalisé a totalement changé notre image.”</p>
+        <strong>Ibrahim Diallo</strong>
+        <span>Startup</span>
+      </div>
+
+      <div class="testimonial-card">
+        <p>“Créatif, à l’écoute et toujours dans les délais.”</p>
+        <strong>Mariam Coulibaly</strong>
+        <span>Marque personnelle</span>
+      </div>
+
+      <div class="testimonial-card">
+        <p>“Design moderne et communication fluide.”</p>
+        <strong>Oumar Keita</strong>
+        <span>Entreprise</span>
+      </div>
+
+      <div class="testimonial-card">
+        <p>“Résultat au-dessus de nos attentes.”</p>
+        <strong>Abdoulaye Sangaré</strong>
+        <span>Agence</span>
+      </div>
+
+      <div class="testimonial-card">
+        <p>“Un vrai professionnel du graphisme.”</p>
+        <strong>Aïssata Traoré</strong>
+        <span>Community Manager</span>
+      </div>
+
+      <div class="testimonial-card">
+        <p>“Je recommande à 100 %, travail sérieux.”</p>
+        <strong>Moussa Diarra</strong>
+        <span>Commerçant</span>
+      </div>
+
+      <div class="testimonial-card">
+        <p>“Créativité + rapidité = parfait.”</p>
+        <strong>Salimata Maïga</strong>
+        <span>ONG</span>
+      </div>
+
+      <div class="testimonial-card">
+        <p>“Très bonne collaboration du début à la fin.”</p>
+        <strong>Seydou Touré</strong>
+        <span>Freelance</span>
+      </div>
+
+    </div>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section class="contact">
-  <h2>Me contacter</h2>
-  <p>📞 WhatsApp : <a href="https://wa.me/22379185898">79185898</a></p>
+<section class="contact scroll-3d" id="contact">
+  <h2>Contactez-moi</h2>
 
-  <div class="social-links">
+  <!-- 🔴 REMPLACE XXXXXXXX PAR TON ID FORMSPREE -->
+  <form action="https://formspree.io/f/XXXXXXXX" method="POST">
+    <input type="text" name="name" placeholder="Votre nom" required>
+    <input type="email" name="email" placeholder="Votre email" required>
+    <textarea name="message" placeholder="Votre message" required></textarea>
+    <button type="submit">Envoyer le message</button>
+  </form>
+
+  <p class="direct">
+    📞 WhatsApp :
+    <a href="https://wa.me/22379185898" target="_blank">79185898</a>
+  </p>
+
+  <div class="socials">
     <a href="https://www.facebook.com/share/1DEU6rAwmM/?mibextid=wwXIfr" target="_blank">Facebook</a>
     <a href="https://www.instagram.com/abdoulgraphics23" target="_blank">Instagram</a>
     <a href="https://www.tiktok.com/@abdoulgraphics" target="_blank">TikTok</a>
   </div>
 </section>
 
+<!-- POPUP IMAGE -->
+<div id="popup" onclick="closePopup()">
+  <img id="popup-img" alt="Image projet">
+</div>
+
+<!-- JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+AOS.init({ duration: 1000, once: true });
+
+function openPopup(src) {
+  const popup = document.getElementById("popup");
+  const img = document.getElementById("popup-img");
+  popup.style.display = "flex";
+  img.src = src;
+}
+
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+}
+
+/* TEXTE TAPÉ */
+const text = "Creative Graphic Designer";
+let i = 0;
+const speed = 80;
+const el = document.querySelector(".hero h1");
+
+if (el) {
+  el.textContent = "";
+  function typeEffect() {
+    if (i < text.length) {
+      el.textContent += text.charAt(i);
+      i++;
+      setTimeout(typeEffect, speed);
+    }
+  }
+  typeEffect();
+}
+</script>
+
+<script>
+/* SCROLL 3D (désactivé sur mobile) */
+if (window.innerWidth > 768) {
+  window.addEventListener("scroll", () => {
+    document.querySelectorAll(".scroll-3d").forEach(section => {
+      const rect = section.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      if (rect.top < windowHeight && rect.bottom > 0) {
+        const progress = (windowHeight - rect.top) / windowHeight;
+        const rotateX = (1 - progress) * 10;
+        const translateZ = progress * 30;
+
+        section.style.transform = `
+          perspective(1200px)
+          rotateX(${rotateX}deg)
+          translateZ(${translateZ}px)
+        `;
+      }
+    });
+  });
+}
+</script>
+<script>
+function toggleMenu() {
+  document.querySelector(".menu").classList.toggle("active");
+  document.querySelector(".hamburger").classList.toggle("active");
+}
+
+function closeMenu() {
+  document.querySelector(".menu").classList.remove("active");
+  document.querySelector(".hamburger").classList.remove("active");
+}
+</script>
+
+<script>
+const counters = document.querySelectorAll('.stat');
+let countersStarted = false;
+
+function startCounters() {
+  counters.forEach(counter => {
+    const target = +counter.getAttribute('data-target');
+    const suffix = counter.getAttribute('data-suffix') || '';
+    let count = 0;
+    const speed = target / 60;
+
+    const update = () => {
+      count += speed;
+      if (count < target) {
+        counter.firstChild.nodeValue = Math.ceil(count) + suffix;
+        requestAnimationFrame(update);
+      } else {
+        counter.firstChild.nodeValue = target + suffix;
+      }
+    };
+    update();
+  });
+}
+
+window.addEventListener('scroll', () => {
+  const statsSection = document.getElementById('stats');
+  const rect = statsSection.getBoundingClientRect();
+
+  if (!countersStarted && rect.top < window.innerHeight) {
+    countersStarted = true;
+    startCounters();
+  }
+});
+</script>
+
+<script>
+window.addEventListener("load", () => {
+  const loader = document.getElementById("loader");
+  loader.style.opacity = "0";
+  loader.style.pointerEvents = "none";
+  setTimeout(() => {
+    loader.style.display = "none";
+  }, 500);
+});
+</script>
+
+<script>
+window.addEventListener("scroll", () => {
+  const scrollProgress = document.getElementById("scroll-progress");
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const scrolled = (scrollTop / docHeight) * 100;
+
+  scrollProgress.style.width = scrolled + "%";
+});
+</script>
+
+<script>
+window.addEventListener("scroll", () => {
+  const parallax = document.querySelector(".parallax");
+  if (!parallax) return;
+
+  const offset = window.pageYOffset;
+  parallax.style.backgroundPositionY = offset * 0.4 + "px";
+});
+</script>
+
+<script>
+function toggleTheme() {
+  document.body.classList.toggle("light");
+  const isLight = document.body.classList.contains("light");
+  localStorage.setItem("theme", isLight ? "light" : "dark");
+}
+
+/* Charger le thème sauvegardé */
+(function () {
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "light") {
+    document.body.classList.add("light");
+  }
+})();
+</script>
+
+<script>
+let currentSlide = 0;
+const slides = document.querySelectorAll(".testimonial-slide");
+const dots = document.querySelectorAll(".dot");
+
+function showSlide(index) {
+  slides.forEach(slide => slide.classList.remove("active"));
+  dots.forEach(dot => dot.classList.remove("active"));
+
+  slides[index].classList.add("active");
+  dots[index].classList.add("active");
+}
+
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide(currentSlide);
+}
+
+// AUTO SLIDE
+setInterval(nextSlide, 5000);
+
+// CLICK DOTS
+dots.forEach((dot, index) => {
+  dot.addEventListener("click", () => {
+    currentSlide = index;
+    showSlide(currentSlide);
+  });
+});
+</script>
+
+<!-- =========================
+     FOOTER
+========================= -->
+<footer class="footer">
+
+  <div class="footer-container">
+
+    <!-- COL 1 -->
+    <div class="footer-brand">
+      <h3>ABDOUL<span>GRAPHICS</span></h3>
+      <p>
+        Designer graphique professionnel basé à Bamako.  
+        Je crée des identités visuelles modernes, puissantes et mémorables.
+      </p>
+
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/share/1DEU6rAwmM/?mibextid=wwXIfr" target="_blank">Fb</a>
+        <a href="https://www.instagram.com/abdoulgraphics23" target="_blank">Ig</a>
+        <a href="https://www.tiktok.com/@abdoulgraphics" target="_blank">Tk</a>
+      </div>
+    </div>
+
+    <!-- COL 2 -->
+    <div class="footer-links">
+      <h4>Explorer</h4>
+      <ul>
+        <li><a href="#home">Accueil</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#about">À propos</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- COL 3 -->
+    <div class="footer-news">
+      <h4>Conseils & Actualités</h4>
+      <ul>
+        <li>Pourquoi le design minimaliste domine</li>
+        <li>Dark mode vs Light mode</li>
+        <li>L’impact émotionnel du graphisme</li>
+        <li>Comment un bon visuel vend plus</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 Abdoulgraphics — Tous droits réservés
+  </div>
+
+</footer>
+
 </body>
 </html>
+
 
