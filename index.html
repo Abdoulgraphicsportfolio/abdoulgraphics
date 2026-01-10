@@ -78,15 +78,11 @@
 
   <h2 data-aos="fade-up">Portfolio</h2>
 
-  <!-- ===== AFFICHES ===== -->
-  <h3 class="category-title" data-aos="fade-right">🎨 Affiches</h3>
-  <div class="grid">
+<!-- ===== AFFICHES ===== -->
+<h3 class="category-title" data-aos="fade-right">🎨 Affiches</h3>
 
-    <img src="images/affiches/affiche1.jpg" onclick="openPopup(this.src)" data-aos="zoom-in">
-    <img src="images/affiches/affiche2.jpg" onclick="openPopup(this.src)" data-aos="zoom-in">
-    <img src="images/affiches/affiche3.jpg" onclick="openPopup(this.src)" data-aos="zoom-in">
+<div class="grid" id="affiches-grid"></div>
 
-  </div>
 
   <!-- ===== LOGOS (vide pour l’instant) ===== -->
   <h3 class="category-title" data-aos="fade-right">🧠 Logos</h3>
@@ -492,6 +488,19 @@ function filterSelection(category) {
   }
   event.target.classList.add("active");
 }
+</script>
+
+<script>
+  const affichesGrid = document.getElementById("affiches-grid");
+
+  for (let i = 1; i <= 100; i++) {
+    const img = document.createElement("img");
+    img.src = `images/affiches/affiche${i}.jpg`;
+    img.alt = `Affiche ${i}`;
+    img.setAttribute("data-aos", "zoom-in");
+    img.onclick = () => openPopup(img.src);
+    affichesGrid.appendChild(img);
+  }
 </script>
 
 </body>
