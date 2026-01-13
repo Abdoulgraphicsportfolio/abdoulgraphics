@@ -224,5 +224,68 @@ function toggleTheme() {
 }
 </script>
 
+<script>
+const counters = document.querySelectorAll(".stat");
+let started = false;
+
+function animateCounters() {
+  counters.forEach(counter => {
+    const target = +counter.dataset.target;
+    const suffix = counter.dataset.suffix || "";
+    let count = 0;
+    const step = target / 80;
+
+    const update = () => {
+      count += step;
+      if (count < target) {
+        counter.firstChild.nodeValue = Math.floor(count) + suffix;
+        requestAnimationFrame(update);
+      } else {
+        counter.firstChild.nodeValue = target + suffix;
+      }
+    };
+    update();
+  });
+}
+
+window.addEventListener("scroll", () => {
+  const stats = document.getElementById("stats");
+  const rect = stats.getBoundingClientRect();
+  if (!started && rect.top < window.innerHeight) {
+    started = true;
+    animateCounters();
+  }
+});
+</script>
+
+<script>
+window.addEventListener("scroll", () => {
+  const bar = document.getElementById("scroll-progress");
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  const scrolled = (window.scrollY / h) * 100;
+  bar.style.width = scrolled + "%";
+});
+</script>
+
+<script>
+window.addEventListener("scroll", () => {
+  const p = document.querySelector(".parallax");
+  if (!p) return;
+  p.style.backgroundPositionY = window.scrollY * 0.4 + "px";
+});
+</script>
+
+<script>
+const track = document.querySelector(".testimonial-track");
+let pos = 0;
+
+setInterval(() => {
+  pos -= 1;
+  track.style.transform = `translateX(${pos}px)`;
+  if (Math.abs(pos) > track.scrollWidth / 2) pos = 0;
+}, 30);
+</script>
+  
 </body>
 </html>
+
