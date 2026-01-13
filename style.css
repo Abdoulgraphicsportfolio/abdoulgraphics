@@ -18,27 +18,13 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
   scroll-behavior: smooth;
-  cursor: none; /* Cache le curseur par défaut pour utiliser le personnalisé */
+   
 }
 
 body {
   background-color: var(--dark-bg);
   color: var(--text-light);
   overflow-x: hidden;
-}
-
-/* CURSEUR PERSONNALISÉ */
-.cursor, .cursor2 {
-  position: fixed;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  display: none; /* Affiché via JS sur desktop seulement */
-}
-@media (min-width: 992px) {
-    .cursor { display: block; width: 8px; height: 8px; background: var(--primary); }
-    .cursor2 { display: block; width: 40px; height: 40px; border: 1px solid var(--primary); transition: 0.1s; }
 }
 
 /* SCROLL BAR PROGRESS */
@@ -510,3 +496,4 @@ footer {
   from { opacity: 0; transform: scale(0.9); }
   to { opacity: 1; transform: scale(1); }
 }
+
