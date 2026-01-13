@@ -467,40 +467,45 @@ footer {
 #lightbox {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.95); /* Fond noir très sombre */
-  display: none; /* Caché par défaut */
+  background: rgba(0, 0, 0, 0.95);
+  display: none; /* Caché au début */
   justify-content: center;
   align-items: center;
-  z-index: 10000;
-  cursor: pointer;
-  padding: 20px;
+  z-index: 99999; /* Très haut pour être devant tout */
 }
 
 #lightbox.active {
-  display: flex; /* Devient visible quand on ajoute la classe 'active' */
-  animation: fadeIn 0.3s;
+  display: flex !important; /* Force l'affichage */
+  animation: fadeIn 0.3s ease;
 }
 
 #lightbox img {
-  max-width: 100%;
-  max-height: 90vh;
-  border-radius: 8px;
-  box-shadow: 0 0 30px rgba(0, 180, 255, 0.3);
+  max-width: 95%;
+  max-height: 80vh;
   object-fit: contain;
+  border: 2px solid #fff;
+  box-shadow: 0 0 20px rgba(255,255,255,0.2);
 }
 
+/* LE BOUTON FERMER (LA CROIX) */
 .close-btn {
   position: absolute;
   top: 20px;
   right: 30px;
   color: #fff;
-  font-size: 40px;
+  font-size: 50px;
   font-weight: bold;
+  cursor: pointer;
+  z-index: 100000;
   transition: 0.3s;
 }
 
-.close-btn:hover { color: #00b4ff; }
+.close-btn:hover {
+  color: red;
+  transform: scale(1.2);
+}
 
+/* Petite animation d'apparition */
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.9); }
   to { opacity: 1; transform: scale(1); }
