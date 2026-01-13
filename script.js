@@ -6,7 +6,6 @@ const NOMBRE_DAFFICHES = 100;
 
 /* =========================
    2. FONCTIONS DU ZOOM (LIGHTBOX)
-   (On les met au début pour être sûr qu'elles chargent)
 ========================= */
 function ouvrirLightbox(sourceImage) {
     const box = document.getElementById('lightbox');
@@ -15,9 +14,7 @@ function ouvrirLightbox(sourceImage) {
     if(box && img) {
         img.src = sourceImage; // Met l'image dans la boite
         box.classList.add('active'); // Affiche la boite
-        box.style.display = "flex"; // Force l'affichage en flex
-    } else {
-        console.error("Erreur: La boite #lightbox n'existe pas dans le HTML");
+        box.style.display = "flex"; // Force l'affichage
     }
 }
 
@@ -35,7 +32,7 @@ function fermerLightbox() {
 const grid = document.querySelector('.portfolio-grid');
 
 function chargerPortfolio() {
-    if (!grid) return; // Sécurité si la grille n'existe pas
+    if (!grid) return; 
 
     // --- GENERER LES LOGOS ---
     for (let i = 1; i <= NOMBRE_DE_LOGOS; i++) {
@@ -43,7 +40,6 @@ function chargerPortfolio() {
         item.classList.add('portfolio-item');
         item.setAttribute('data-category', 'logo');
         
-        // On définit le lien de l'image
         const imageSrc = `images/logos/logo${i}.png`;
 
         item.innerHTML = `
@@ -54,11 +50,8 @@ function chargerPortfolio() {
             </div>
         `;
         
-        // L'ACTION DE CLIC EST AJOUTÉE DIRECTEMENT ICI
-        item.onclick = function() {
-            ouvrirLightbox(imageSrc);
-        };
-
+        // Ajout du clic pour le zoom
+        item.onclick = function() { ouvrirLightbox(imageSrc); };
         grid.appendChild(item);
     }
 
@@ -68,7 +61,6 @@ function chargerPortfolio() {
         item.classList.add('portfolio-item');
         item.setAttribute('data-category', 'affiche');
         
-        // On définit le lien de l'image (Attention au .jpg ou .jpeg)
         const imageSrc = `images/affiches/affiche${i}.jpg`;
 
         item.innerHTML = `
@@ -79,11 +71,8 @@ function chargerPortfolio() {
             </div>
         `;
 
-        // L'ACTION DE CLIC EST AJOUTÉE DIRECTEMENT ICI
-        item.onclick = function() {
-            ouvrirLightbox(imageSrc);
-        };
-
+        // Ajout du clic pour le zoom
+        item.onclick = function() { ouvrirLightbox(imageSrc); };
         grid.appendChild(item);
     }
 
@@ -129,5 +118,5 @@ function closeMenu() {
   document.querySelector(".menu").classList.remove("active");
 }
 
-// Lancement au chargement de la page
+// Lancement au démarrage
 document.addEventListener('DOMContentLoaded', chargerPortfolio);
