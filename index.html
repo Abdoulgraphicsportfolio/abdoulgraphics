@@ -11,41 +11,26 @@
 
 <body>
 
-<!-- LOADER -->
-<div id="loader">
-  <div class="loader-ring"></div>
-  <p>Chargement...</p>
-</div>
-
-<!-- SCROLL PROGRESS -->
-<div id="scroll-progress"></div>
-
 <!-- NAV -->
 <nav class="nav">
   <div class="logo">ABDOUL<span>GRAPHICS</span></div>
-
   <ul class="menu">
     <li><a href="#home">Accueil</a></li>
     <li><a href="#portfolio">Portfolio</a></li>
     <li><a href="#about">À propos</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-
-  <div class="hamburger" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
-  </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero" id="home">
   <h1>Creative Graphic Designer</h1>
   <p>Designer graphique professionnel basé à Bamako</p>
-  <a href="#portfolio" class="btn">Voir mes créations</a>
 </section>
 
 <!-- PORTFOLIO -->
 <section class="portfolio" id="portfolio">
-  <h2 data-aos="fade-up">Portfolio</h2>
+  <h2>Portfolio</h2>
 
   <!-- AFFICHES -->
   <h3 class="category-title">🎨 Affiches</h3>
@@ -53,32 +38,9 @@
   <button id="load-more-affiches" class="load-more-btn">Voir plus</button>
 
   <!-- LOGOS -->
-  <h3 class="category-title">💎 Logos</h3>
+  <h3 class="category-title">🎨 Logos</h3>
   <div class="grid" id="logos-grid"></div>
   <button id="load-more-logos" class="load-more-btn">Voir plus</button>
-</section>
-
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="about-container">
-    <img src="images/abdoul.jpg" alt="Abdoul">
-    <div>
-      <h2>Derrière Abdoulgraphics</h2>
-      <p>Designer graphique passionné, spécialisé en branding, affiches et logos.</p>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <h2>Contact</h2>
-
-  <form action="https://formspree.io/f/XXXXXXXX" method="POST">
-    <input type="text" name="name" placeholder="Votre nom" required>
-    <input type="email" name="email" placeholder="Votre email" required>
-    <textarea name="message" placeholder="Votre message" required></textarea>
-    <button type="submit">Envoyer</button>
-  </form>
 </section>
 
 <!-- POPUP -->
@@ -86,21 +48,31 @@
   <img id="popup-img">
 </div>
 
-<!-- JS LIB -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>AOS.init();</script>
 
-<!-- AFFICHES SCRIPT -->
+<script>
+function openPopup(src) {
+  document.getElementById("popup").style.display = "flex";
+  document.getElementById("popup-img").src = src;
+}
+</script>
+
+<!-- ================= AFFICHES SCRIPT ================= -->
 <script>
 const affichesGrid = document.getElementById("affiches-grid");
-const loadAffichesBtn = document.getElementById("load-more-affiches");
+const btnAffiches = document.getElementById("load-more-affiches");
 
 let afficheIndex = 1;
-const affichesPerLoad = 12;
-const affichesTotal = 100;
+const afficheTotal = 100;
+const affichePerLoad = 12;
 
 function loadAffiches() {
-  for (let i = 0; i < affichesPerLoad && afficheIndex <= affichesTotal; i++) {
+  for (let i = 0; i < affichePerLoad; i++) {
+    if (afficheIndex > afficheTotal) {
+      btnAffiches.style.display = "none";
+      return;
+    }
     const img = document.createElement("img");
     img.src = `images/affiches/affiche${afficheIndex}.jpg`;
     img.loading = "lazy";
@@ -108,23 +80,27 @@ function loadAffiches() {
     affichesGrid.appendChild(img);
     afficheIndex++;
   }
-  if (afficheIndex > affichesTotal) loadAffichesBtn.style.display = "none";
 }
+
 loadAffiches();
-loadAffichesBtn.onclick = loadAffiches;
+btnAffiches.addEventListener("click", loadAffiches);
 </script>
 
-<!-- LOGOS SCRIPT -->
+<!-- ================= LOGOS SCRIPT (CORRIGÉ) ================= -->
 <script>
 const logosGrid = document.getElementById("logos-grid");
-const loadLogosBtn = document.getElementById("load-more-logos");
+const btnLogos = document.getElementById("load-more-logos");
 
 let logoIndex = 1;
-const logosPerLoad = 12;
-const logosTotal = 53;
+const logoTotal = 53;
+const logoPerLoad = 12;
 
 function loadLogos() {
-  for (let i = 0; i < logosPerLoad && logoIndex <= logosTotal; i++) {
+  for (let i = 0; i < logoPerLoad; i++) {
+    if (logoIndex > logoTotal) {
+      btnLogos.style.display = "none";
+      return;
+    }
     const img = document.createElement("img");
     img.src = `images/logos/logo${logoIndex}.png`;
     img.loading = "lazy";
@@ -132,18 +108,10 @@ function loadLogos() {
     logosGrid.appendChild(img);
     logoIndex++;
   }
-  if (logoIndex > logosTotal) loadLogosBtn.style.display = "none";
 }
-loadLogos();
-loadLogosBtn.onclick = loadLogos;
-</script>
 
-<!-- POPUP -->
-<script>
-function openPopup(src) {
-  document.getElementById("popup").style.display = "flex";
-  document.getElementById("popup-img").src = src;
-}
+loadLogos();
+btnLogos.addEventListener("click", loadLogos);
 </script>
 
 </body>
