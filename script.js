@@ -114,3 +114,34 @@ if(cursor && cursor2) {
         cursor.style.cssText = cursor2.style.cssText = "left: " + e.clientX + "px; top: " + e.clientY + "px;";
     });
 }
+/* =========================
+   GESTION DU ZOOM (LIGHTBOX)
+========================= */
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+
+// 1. Fonction pour ouvrir l'image
+function ouvrirLightbox(src) {
+    lightbox.classList.add('active');
+    lightboxImg.src = src;
+}
+
+// 2. Fonction pour fermer quand on clique n'importe où
+function fermerLightbox() {
+    lightbox.classList.remove('active');
+}
+
+// 3. Détecteur de clic intelligent (Event Delegation)
+// On écoute les clics sur toute la grille, car les images sont créées dynamiquement
+document.querySelector('.portfolio-grid').addEventListener('click', function(e) {
+    // On cherche si le clic a touché une "portfolio-item" ou un de ses enfants
+    const item = e.target.closest('.portfolio-item');
+    
+    if (item) {
+        // Si oui, on trouve l'image à l'intérieur de cet item
+        const img = item.querySelector('img');
+        if (img) {
+            ouvrirLightbox(img.src);
+        }
+    }
+});
