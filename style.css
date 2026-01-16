@@ -650,27 +650,47 @@ footer {
 }
 
 /* Infos du client (en bas) */
+/* Infos du client (Mise à jour avec Photo) */
 .reviewer-info {
     border-top: 1px solid var(--glass-border);
     padding-top: 20px;
+    display: flex;       /* Aligne la photo et le texte côte à côte */
+    align-items: center; /* Centre verticalement */
+    gap: 15px;           /* Espace entre la photo et le nom */
+    text-align: left;
+}
+
+/* Style de la photo ronde */
+.client-photo {
+    width: 55px;         /* Taille de l'image */
+    height: 55px;
+    border-radius: 50%;  /* Rend l'image parfaitement ronde */
+    object-fit: cover;   /* Coupe l'image proprement sans déformer */
+    border: 2px solid var(--primary); /* Petite bordure bleue élégante */
+}
+
+/* Conteneur du nom et étoiles */
+.client-details {
+    display: flex;
+    flex-direction: column;
 }
 
 .stars {
-    color: gold; /* Couleur des étoiles */
-    font-size: 0.9rem;
-    margin-bottom: 5px;
+    color: gold;
+    font-size: 0.8rem;
+    margin-bottom: 3px;
 }
 
 .reviewer-info h4 {
     color: #fff;
     font-weight: 600;
-    font-size: 1.1rem;
-    margin-bottom: 3px;
+    font-size: 1rem;
+    margin: 0;
 }
 
 .reviewer-info span {
     color: var(--primary);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 500;
 }
 
@@ -683,5 +703,3 @@ footer {
         padding: 25px;
     }
 }
-
-
