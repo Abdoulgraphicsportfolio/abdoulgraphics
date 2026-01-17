@@ -98,22 +98,6 @@ body {
 .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
 .bar { width: 25px; height: 3px; background: #fff; border-radius: 2px; }
 
-@media (max-width: 768px) {
-  .menu {
-    position: fixed;
-    inset: 0;
-    background: var(--dark-bg);
-    flex-direction: column;
-    justify-content: center;
-    transform: translateX(100%);
-    transition: 0.4s;
-    z-index: 999;
-  }
-  .menu.active { transform: translateX(0); }
-  .hamburger { display: flex; }
-  .nav { padding: 15px 5%; }
-}
-
 /* =========================
    HERO SECTION
 ========================= */
@@ -637,4 +621,25 @@ footer {
         padding: 25px;
     }
 }
+@media (max-width: 768px) {
+  .menu {
+    position: fixed;
+    inset: 0;
+    background: var(--dark-bg);
+    flex-direction: column;
+    justify-content: center;
+    transform: translateX(100%);
+    transition: 0.4s;
+    z-index: 999;
+  }
+  .menu.active { transform: translateX(0); }
+  .hamburger { display: flex; }
+  .nav { padding: 15px 5%; }
 
+  /* AJOUT IMPORTANT POUR LE TITRE SUR MOBILE : */
+  .hero-title { 
+      font-size: 2.5rem; /* On réduit la taille pour que ça rentre sur l'écran */
+  }
+  
+  .contact-container { flex-direction: column; }
+}
