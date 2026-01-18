@@ -692,3 +692,108 @@ footer {
   .testimonial-grid { grid-template-columns: 1fr; }
   .testimonial-card { padding: 25px; }
 }
+/* =========================
+   SECTION GRAPH'AP (DESIGN FINAL)
+========================= */
+.graphap-section {
+    padding: 100px 8%;
+    background: linear-gradient(to bottom, #020d2b, #001f3f);
+    text-align: center;
+    border-top: 1px solid rgba(255, 102, 0, 0.2); /* Ligne orange subtile */
+}
+
+/* Texte Histoire */
+.story-text {
+    max-width: 800px;
+    margin: 0 auto 30px;
+    color: #ddd;
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+/* Lettres A et P */
+.letters-animation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+.letter-box {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px 25px;
+    border-radius: 15px;
+    border: 1px solid #ff6600; /* Orange Graph'AP */
+}
+.big-letter {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #ff6600;
+    display: block;
+}
+.meaning { font-size: 0.9rem; color: #ccc; }
+.plus { font-size: 2rem; color: #fff; }
+
+/* Fondateurs & Logo */
+.founders-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.founder-card img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #ff6600;
+    margin-bottom: 10px;
+    box-shadow: 0 0 20px rgba(255, 102, 0, 0.2);
+}
+
+.brand-logo-anim {
+    width: 140px; 
+    animation: floatLogo 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 15px rgba(255, 102, 0, 0.4));
+}
+@keyframes floatLogo {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+/* Galerie Cachée */
+.hidden-gallery {
+    display: none;
+    margin-top: 40px;
+    animation: slideDown 0.6s ease;
+}
+.hidden-gallery.active { display: block; }
+
+.ads-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+.ads-grid img {
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.ads-grid img:hover { transform: scale(1.05); border-color: #ff6600; }
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .letters-animation { flex-direction: column; gap: 15px; }
+    .founders-grid { flex-direction: column; }
+    .brand-logo-anim { width: 100px; margin: 20px 0; }
+}
