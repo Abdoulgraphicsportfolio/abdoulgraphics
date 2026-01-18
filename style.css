@@ -800,4 +800,154 @@ footer {
     .founders-grid { flex-direction: column; }
     .brand-logo-anim { width: 100px; margin: 20px 0; }
 }
+/* =========================
+   SECTION FORMATION (STYLE BLEU & ORANGE)
+========================= */
+.training-section {
+    padding: 100px 8%;
+    /* Un dégradé bleu roi inspiré de ton affiche */
+    background: radial-gradient(circle at center, #0a1e5e, #000000); 
+    color: #fff;
+    border-top: 4px solid #ff6600; /* Ligne orange en haut */
+}
+
+.training-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.badge-orange {
+    background: #ff6600;
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    box-shadow: 0 0 15px rgba(255, 102, 0, 0.6);
+}
+
+.price-tag {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #ff6600;
+    margin-top: 10px;
+}
+.small-tag { font-size: 1rem; color: #ccc; font-weight: normal; }
+
+/* Mise en page Texte + Image */
+.training-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 80px;
+    flex-wrap: wrap;
+}
+
+.text-column {
+    flex: 1;
+    min-width: 300px;
+}
+
+.text-column h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    background: -webkit-linear-gradient(#fff, #aaa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-column p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #e0e0e0;
+    margin-bottom: 20px;
+}
+
+.benefits-list {
+    list-style: none;
+    margin: 30px 0;
+}
+.benefits-list li {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.benefits-list i { color: #ff6600; }
+
+/* Image Principale avec effet brillant */
+.image-column {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+.main-flyer {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 30px rgba(10, 30, 94, 0.8);
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+.main-flyer:hover { transform: scale(1.02); }
+
+/* Galerie du bas */
+.training-gallery h3 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    display: inline-block;
+    padding-bottom: 10px;
+    /* Pour centrer le titre */
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.gallery-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.gallery-item {
+    text-align: center;
+    width: 300px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 300px; /* Hauteur fixe pour alignement */
+    object-fit: contain; /* Affiche l'image entière sans couper */
+    background: rgba(0,0,0,0.3);
+    border-radius: 15px;
+    border: 1px solid #ff6600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.gallery-item img:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(255, 102, 0, 0.3); }
+.gallery-item p { margin-top: 10px; color: #ff6600; font-weight: bold; }
+
+/* Animation du bouton */
+.btn-pulse {
+    animation: pulseBtn 2s infinite;
+}
+@keyframes pulseBtn {
+    0% { box-shadow: 0 0 0 0 rgba(255, 102, 0, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(255, 102, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 102, 0, 0); }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .training-content { flex-direction: column-reverse; } /* Image au dessus du texte sur mobile */
+    .text-column { text-align: center; }
+    .benefits-list { text-align: left; display: inline-block; }
+}
 
